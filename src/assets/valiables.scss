@@ -1,0 +1,13 @@
+$breakpoint: 767px;
+
+@mixin PC($minwidth:$breakpoint + 1) {
+	@media screen and (min-width:$minwidth) {
+		@content;
+	}
+}
+
+@mixin SP($maxwidth:$breakpoint) {
+	@media screen and (max-width:$maxwidth) {
+		@content;
+	}
+}

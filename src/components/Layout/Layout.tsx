@@ -3,7 +3,7 @@ import { Head } from "../Head/Head";
 import { Chart } from "../Chart/Chart";
 import { CheckBox } from "../CheckBox/CheckBox";
 
-export const Layout = () => {
+export const Layout: React.VFC = () => {
   return (
     <>
       <Head />
