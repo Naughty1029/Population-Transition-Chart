@@ -15,12 +15,12 @@ import {
 export const Chart: React.VFC = () => {
   const checekPrefs = [
     {
-      name: "北海道",
-      code: "c1220",
+      prefName: "北海道",
+      prefCode: "c1220",
     },
     {
-      name: "東京",
-      code: "c1221",
+      prefName: "東京",
+      prefCode: "c1221",
     },
   ];
   const data = [
@@ -53,8 +53,8 @@ export const Chart: React.VFC = () => {
             <Line
               key={index}
               type="monotone"
-              name={value.name}
-              dataKey={value.code}
+              name={value.prefName}
+              dataKey={value.prefCode}
               stroke="#8884d8"
             />
           ))}
