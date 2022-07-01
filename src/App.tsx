@@ -1,12 +1,7 @@
 import React, { useReducer, createContext } from "react";
 import { QueryClient, QueryClientProvider } from "react-query";
-import { Layout } from "./components/Layout/Layout";
-import { PrefTypes, State } from "./types/index";
-
-type Action = {
-  type: "ADD_PREFS";
-  payload: PrefTypes;
-};
+import { Layout } from "@components/Layout/Layout";
+import { Action, State } from "@src/types/index";
 
 const queryClient = new QueryClient();
 

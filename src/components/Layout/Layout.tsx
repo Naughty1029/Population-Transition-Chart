@@ -1,7 +1,7 @@
 import React from "react";
-import { Head } from "../Head/Head";
-import { Chart } from "../Chart/Chart";
-import { CheckBox } from "../CheckBox/CheckBox";
+import { Head } from "@components/Head/Head";
+import { Chart } from "@components/Chart/Chart";
+import { CheckBox } from "@components/CheckBox/CheckBox";
 
 export const Layout: React.VFC = () => {
   return (

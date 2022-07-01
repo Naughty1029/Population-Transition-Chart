@@ -8,7 +8,10 @@
       "esnext"
     ],
     "baseUrl": "./src",
-
+    "paths": {
+      "@src/*": ["*"],
+      "@components/*": ["components/*"]
+    },
     /* ファイル名の大文字小文字を区別 */
     "forceConsistentCasingInFileNames": true,
     /* 型チェック関係のオプション */
@@ -31,7 +34,7 @@
     "resolveJsonModule": true,
     "noEmit": true,
   },
-  "include": ["src/**/*.ts","src/**/*.tsx", "src/index.js"],
+  "include": ["./src"],
   "exclude": [
     "node_modules"
   ],

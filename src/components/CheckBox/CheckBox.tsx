@@ -1,9 +1,9 @@
 import React from "react";
 import { useContext } from "react";
-import { AppContext } from "../../App";
+import { AppContext } from "@src/App";
 import { useQuery } from "react-query";
-import "./CheckBox.scss";
-import { PrefTypes } from "../../types/index";
+import "@components/CheckBox/CheckBox.scss";
+import { PrefTypes } from "@src/types/index";
 
 export const CheckBox: React.VFC = () => {
   const url = "https://opendata.resas-portal.go.jp/api/v1/prefectures";
