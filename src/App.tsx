@@ -1,15 +1,7 @@
 import React, { useReducer, createContext } from "react";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { Layout } from "./components/Layout/Layout";
-
-type PrefTypes = {
-  prefCode: number;
-  prefName: string;
-};
-
-type State = {
-  checkedPrefs: Array<PrefTypes>;
-};
+import { PrefTypes, State } from "./types/index";
 
 type Action = {
   type: "ADD_PREFS";

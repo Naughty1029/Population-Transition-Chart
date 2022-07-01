@@ -3,11 +3,8 @@ import { useContext } from "react";
 import { AppContext } from "../../App";
 import { useQuery } from "react-query";
 import "./CheckBox.scss";
+import { PrefTypes } from "../../types/index";
 
-type PrefTypes = {
-  prefCode: number;
-  prefName: string;
-};
 export const CheckBox: React.VFC = () => {
   const url = "https://opendata.resas-portal.go.jp/api/v1/prefectures";
   const fetchPrefectures = async () => {
