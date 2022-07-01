@@ -8,6 +8,14 @@ export const reducer = (state: State, action: Action) => {
         checkedPrefs: [...state.checkedPrefs, action.payload],
       };
 
+    case "DELETE_PREFS":
+      return {
+        ...state,
+        checkedPrefs: state.checkedPrefs.filter(
+          (data) => data.prefCode !== action.payload.prefCode
+        ),
+      };
+
     default:
       return state;
   }
