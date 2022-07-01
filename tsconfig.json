@@ -7,6 +7,7 @@
       "dom.iterable",
       "esnext"
     ],
+    "baseUrl": "./src",
 
     /* ファイル名の大文字小文字を区別 */
     "forceConsistentCasingInFileNames": true,
@@ -34,5 +35,4 @@
   "exclude": [
     "node_modules"
   ],
-  "baseUrl": "src",
 }
