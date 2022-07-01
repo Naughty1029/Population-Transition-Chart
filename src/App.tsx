@@ -1,7 +1,7 @@
 import React from "react";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { Layout } from "@components/Layout/Layout";
-import { AppContextProvider } from "@src/provider/context";
+import { AppContextProvider } from "@src/provider/AppContextProvider";
 
 const queryClient = new QueryClient();
 
