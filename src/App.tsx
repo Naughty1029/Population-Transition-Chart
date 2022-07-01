@@ -1,42 +1,17 @@
-import React, { useReducer, createContext } from "react";
+import React from "react";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { Layout } from "@components/Layout/Layout";
-import { Action, State } from "@src/types/index";
+import { AppContextProvider } from "@src/provider/context";
 
 const queryClient = new QueryClient();
 
-export const AppContext = createContext(
-  {} as {
-    state: State;
-    dispatch: React.Dispatch<Action>;
-  }
-);
-
-const reducer = (state: State, action: Action) => {
-  switch (action.type) {
-    case "ADD_PREFS":
-      return {
-        ...state,
-        checkedPrefs: [...state.checkedPrefs, action.payload],
-      };
-
-    default:
-      return state;
-  }
-};
-
-const initialState = {
-  checkedPrefs: [],
-};
-
 const App: React.VFC = () => {
-  const [state, dispatch] = useReducer(reducer, initialState);
   return (
-    <AppContext.Provider value={{ state, dispatch }}>
+    <AppContextProvider>
       <QueryClientProvider client={queryClient}>
         <Layout />
       </QueryClientProvider>
-    </AppContext.Provider>
+    </AppContextProvider>
   );
 };
 export default App;
