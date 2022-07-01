@@ -21,14 +21,14 @@ export const CheckBox: React.VFC = () => {
   };
 
   const { data, isLoading } = useQuery("prefectures", fetchPrefectures);
-  const { checkedPrefs, setCheckedPrefs } = useContext(AppContext);
+  const { state, dispatch } = useContext(AppContext);
 
   const checkedPrefectures = (pref: PrefTypes) => {
-    console.log(checkedPrefs);
+    console.log(state.checkedPrefs);
     //もし既にobjectの中に同じ都道府県があれば削除
 
     //もし既にobjectの中に同じ都道府県がなければ追加
-    setCheckedPrefs((prevCheckedPrefs) => [...prevCheckedPrefs, pref]);
+    dispatch({ type: "ADD_PREFS", payload: pref });
   };
 
   if (isLoading) {
