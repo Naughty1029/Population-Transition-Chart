@@ -8,4 +8,10 @@ export type Action =
   | {
       type: "DELETE_PREFS";
       payload: PrefTypes;
+    }
+  | {
+      type: "ADD_MAPDATA";
+    }
+  | {
+      type: "DELETE_MAPDATA";
     };

@@ -5,7 +5,7 @@ import { PrefTypes } from "@src/types/index";
 export const useCheckPrefectures = () => {
   const { state, dispatch } = useContext(AppContext);
 
-  const checkedPrefectures = async (pref: PrefTypes) => {
+  const checkedPrefectures = (pref: PrefTypes) => {
     const prefIsExist = state.checkedPrefs.find(
       (data) => data.prefCode === pref.prefCode
     );
