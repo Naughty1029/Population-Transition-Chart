@@ -1,6 +1,5 @@
 import React from "react";
 import "@components/Chart/Chart.scss";
-
 import {
   LineChart,
   Line,

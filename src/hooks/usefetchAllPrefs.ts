@@ -1,6 +1,6 @@
 import { useQuery } from "react-query";
 
-export const usefetchAllPrefs = () => {
+export const useFetchAllPrefs = () => {
   const url = "https://opendata.resas-portal.go.jp/api/v1/prefectures";
 
   const fetchPrefectures = async () => {
@@ -13,7 +13,7 @@ export const usefetchAllPrefs = () => {
     return res.json();
   };
 
-  const { data, isLoading } = useQuery("prefectures", fetchPrefectures);
+  const { data: prefs, isLoading } = useQuery("prefectures", fetchPrefectures);
 
-  return { data, isLoading };
+  return { prefs, isLoading };
 };
