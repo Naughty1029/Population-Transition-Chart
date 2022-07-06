@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import "@components/Chart/Chart.scss";
 import { useContext } from "react";
 import { AppContext } from "@src/provider/AppContextProvider";
@@ -12,27 +12,9 @@ import {
   Legend,
   ResponsiveContainer,
 } from "recharts";
-import { useFetchPopulation } from "@src/hooks/useFetchPopulation";
 
 export const Chart: React.VFC = () => {
   const { state } = useContext(AppContext);
-  const { population } = useFetchPopulation();
-
-  useEffect(() => {
-    //この中でstate.mapDataの値を変更したい
-    //配列の一番最後の要素が直近で選択した都道府県として取得する
-    const currentPref = state.checkedPrefs[state.checkedPrefs.length - 1];
-    let currentPrefCode;
-    currentPref ? (currentPrefCode = currentPref["prefCode"]) : "";
-    console.log(currentPrefCode);
-
-    const flag = true;
-    if (flag) {
-      //もし既にobjectの中に同じ都道府県があれば削除
-    } else {
-      //もし既にobjectの中に同じ都道府県がなければ追加
-    }
-  }, [population, state.checkedPrefs]);
 
   return (
     <div className="chart">
@@ -42,7 +24,12 @@ export const Chart: React.VFC = () => {
           <XAxis dataKey="name" />
           <YAxis />
           <Tooltip />
-          <Legend layout="vertical" align="right" verticalAlign="middle" />
+          <Legend
+            layout="vertical"
+            align="right"
+            verticalAlign="middle"
+            width={200}
+          />
           {state.checkedPrefs.map((value, index) => (
             <Line
               key={index}

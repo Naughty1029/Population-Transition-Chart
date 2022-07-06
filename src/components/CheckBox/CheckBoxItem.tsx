@@ -1,24 +1,15 @@
 import React from "react";
 import { PrefTypes } from "@src/types";
-import { useFetchPopulation } from "@src/hooks/useFetchPopulation";
 
 type Props = {
   pref: PrefTypes;
-  checkedPrefectures: (pref: PrefTypes) => void;
+  handleChangeCheckBox: (pref: PrefTypes) => void;
 };
 
 export const CheckBoxItem: React.VFC<Props> = ({
   pref,
-  checkedPrefectures,
+  handleChangeCheckBox,
 }) => {
-  const { refetch } = useFetchPopulation(pref);
-
-  const handleChangeCheckBox = () => {
-    checkedPrefectures(pref);
-    console.log(pref);
-    refetch();
-  };
-
   return (
     <li key={pref.prefCode}>
       <label htmlFor={pref.prefName}>
@@ -26,7 +17,8 @@ export const CheckBoxItem: React.VFC<Props> = ({
           type="checkbox"
           name=""
           id={pref.prefName}
-          onChange={handleChangeCheckBox}
+          data-pref={pref}
+          onChange={() => handleChangeCheckBox(pref)}
         />
         <span>{pref.prefName}</span>
       </label>
