@@ -2,9 +2,9 @@ import React, { useContext } from "react";
 import "@components/CheckBox/CheckBox.scss";
 import { CheckBoxItem } from "@components/CheckBox/CheckBoxItem";
 import { PrefTypes } from "@src/types/index";
-import { useFetchAllPrefs } from "@src/hooks/useFetchAllPrefs";
 import { useCheckPrefectures } from "@src/hooks/useCheckPrefectures";
 import { AppContext } from "@src/provider/AppContextProvider";
+import { useFetchAllPrefs } from "@src/hooks/usefetchAllPrefs";
 export const CheckBox: React.VFC = () => {
   const { prefs, isLoading } = useFetchAllPrefs();
   const { dispatch } = useContext(AppContext);
