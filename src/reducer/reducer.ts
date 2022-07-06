@@ -15,6 +15,11 @@ export const reducer = (state: State, action: Action) => {
           (data) => data.prefCode !== action.payload.prefCode
         ),
       };
+    case "CHANGE_CURRENTPREF":
+      return {
+        ...state,
+        currentPref: [action.payload],
+      };
 
     default:
       return state;

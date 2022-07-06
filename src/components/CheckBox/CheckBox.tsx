@@ -1,35 +1,18 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
 import "@components/CheckBox/CheckBox.scss";
 import { CheckBoxItem } from "@components/CheckBox/CheckBoxItem";
 import { PrefTypes } from "@src/types/index";
 import { useFetchAllPrefs } from "@src/hooks/useFetchAllPrefs";
 import { useCheckPrefectures } from "@src/hooks/useCheckPrefectures";
-import { useQuery } from "react-query";
-
+import { AppContext } from "@src/provider/AppContextProvider";
 export const CheckBox: React.VFC = () => {
   const { prefs, isLoading } = useFetchAllPrefs();
-  const [currentPref, setCurrentPref] = useState({} as PrefTypes);
+  const { dispatch } = useContext(AppContext);
   const { checkedPrefectures } = useCheckPrefectures();
-
-  const fetchPopulation = async (currentPref: PrefTypes) => {
-    const fetchUrl = `https://opendata.resas-portal.go.jp/api/v1/population/composition/perYear?prefCode=${currentPref.prefCode}`;
-    const res = await fetch(fetchUrl, {
-      method: "GET",
-      headers: {
-        "x-api-key": "KKigZnHRZ261R2CQ4EuI5dJOpDtwRH3oT1V62ahn",
-      },
-    });
-    return res.json();
-  };
-
-  const { data: population } = useQuery(["population", currentPref], () =>
-    fetchPopulation(currentPref)
-  );
-  console.log(population);
 
   const handleChangeCheckBox = (pref: PrefTypes) => {
     checkedPrefectures(pref);
-    setCurrentPref(pref);
+    dispatch({ type: "CHANGE_CURRENTPREF", payload: pref });
   };
 
   if (isLoading) {

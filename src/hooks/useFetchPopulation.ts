@@ -1,12 +1,12 @@
 import { useQuery } from "react-query";
-import { PrefTypes } from "@src/types";
+import { AppContext } from "@src/provider/AppContextProvider";
+import { useContext } from "react";
 
-export const useFetchPopulation = (pref?: PrefTypes) => {
-  const url =
-    "https://opendata.resas-portal.go.jp/api/v1/population/composition/perYear";
+export const useFetchPopulation = () => {
+  const { state } = useContext(AppContext);
 
-  const fetchPopulation = async () => {
-    const fetchUrl = pref ? `${url}?prefCode=${pref.prefCode}` : "";
+  const fetchPopulation = async (currentPrefCode: number) => {
+    const fetchUrl = `https://opendata.resas-portal.go.jp/api/v1/population/composition/perYear?prefCode=${currentPrefCode}`;
     const res = await fetch(fetchUrl, {
       method: "GET",
       headers: {
@@ -16,11 +16,10 @@ export const useFetchPopulation = (pref?: PrefTypes) => {
     return res.json();
   };
 
-  const {
-    data: population,
-    status,
-    refetch,
-  } = useQuery("population", fetchPopulation, { enabled: false });
+  const { data: population, status } = useQuery(
+    ["population", state.currentPref[0].prefCode],
+    () => fetchPopulation(state.currentPref[0].prefCode)
+  );
 
-  return { population, status, refetch };
+  return { population, status };
 };

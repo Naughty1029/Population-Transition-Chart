@@ -10,8 +10,6 @@ export type Action =
       payload: PrefTypes;
     }
   | {
-      type: "ADD_MAPDATA";
-    }
-  | {
-      type: "DELETE_MAPDATA";
+      type: "CHANGE_CURRENTPREF";
+      payload: PrefTypes;
     };

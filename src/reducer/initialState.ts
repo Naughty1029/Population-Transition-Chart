@@ -1,4 +1,9 @@
 export const initialState = {
   checkedPrefs: [],
-  mapData: [],
+  currentPref: [
+    {
+      prefCode: 0,
+      prefName: "",
+    },
+  ],
 };
