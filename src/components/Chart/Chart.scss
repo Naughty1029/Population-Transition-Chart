@@ -1,0 +1,12 @@
+.chart{
+  max-width: 1300px;
+  height: 600px;
+  margin: 100px auto 60px;
+}
+
+.recharts-legend-item{
+  margin-left: 20px;
+  &:not(:first-child){
+    margin-top: 10px;
+  }
+}
