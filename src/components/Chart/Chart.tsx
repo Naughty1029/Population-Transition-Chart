@@ -36,7 +36,7 @@ export const Chart: React.VFC = () => {
         };
 
         if (mapData[index] !== undefined) {
-          const merged = Object.assign(mapData[index], tempObj);
+          const merged = Object.assign(mapData[index], tempObj); //オブジェクトを結合する
           return merged;
         } else {
           return tempObj;
@@ -52,7 +52,7 @@ export const Chart: React.VFC = () => {
         <LineChart width={500} height={300} data={mapData}>
           <CartesianGrid strokeDasharray="3 3" />
           <XAxis dataKey="name" />
-          <YAxis />
+          <YAxis width={100} />
           <Tooltip />
           <Legend
             layout="vertical"
@@ -66,7 +66,8 @@ export const Chart: React.VFC = () => {
               type="monotone"
               name={value.prefName}
               dataKey={value.prefCode}
-              stroke="#8884d8"
+              stroke={value.color}
+              isAnimationActive={false}
             />
           ))}
         </LineChart>

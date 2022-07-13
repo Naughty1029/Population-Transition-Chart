@@ -20,7 +20,7 @@ export const CheckBox: React.VFC = () => {
   }
   return (
     <ul className="checkbox">
-      {prefs["result"].map((pref: PrefTypes) => (
+      {prefs.map((pref: PrefTypes) => (
         <CheckBoxItem
           key={pref.prefCode}
           pref={pref}

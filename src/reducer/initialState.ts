@@ -4,6 +4,7 @@ export const initialState = {
     {
       prefCode: 0,
       prefName: "",
+      color: "",
     },
   ],
 };
