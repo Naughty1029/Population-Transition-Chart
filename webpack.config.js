@@ -45,6 +45,11 @@ module.exports = {
           },
         ],
       },
+      { 
+        test: /\.(png|jpg|gif)$/,
+        loader: 'file-loader',
+        options: {},
+      }
     ],
   },
   plugins: [
@@ -53,6 +58,7 @@ module.exports = {
       template: path.resolve(__dirname, "src/index.html"),
       inject: "body",
       scriptLoading: "defer",
+      favicon: path.resolve(__dirname, "src/favicon.ico"),
     }),
     new ESLintPlugin({
       extensions: ["ts", "tsx", "js"],
